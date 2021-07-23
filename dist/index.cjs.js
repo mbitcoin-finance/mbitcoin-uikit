@@ -2619,22 +2619,26 @@ var styleVariants = (_b = {},
     _b);
 
 var getOutlineStyles = function (_a) {
-    var outline = _a.outline, theme = _a.theme, _b = _a.variant, variantKey = _b === void 0 ? variants.PRIMARY : _b;
+    var outline = _a.outline, theme = _a.theme, _b = _a.variant, variantKey = _b === void 0 ? variants.PRIMARY : _b, customColor = _a.color;
     if (outline) {
         var themeColorKey = styleVariants[variantKey].backgroundColor;
         var color = theme.colors[themeColorKey];
-        return "\n      color: " + color + ";\n      background: transparent;\n      border: 2px solid " + color + ";\n    ";
+        return "\n      color: " + (customColor || color) + ";\n      background: transparent;\n      border: 2px solid " + color + ";\n    ";
     }
     return "";
 };
-var StyledTag = styled__default['default'].div(templateObject_1$k || (templateObject_1$k = __makeTemplateObject(["\n  align-items: center;\n  border-radius: 0;\n  color: #ffffff;\n  display: inline-flex;\n  font-weight: 400;\n  white-space: nowrap;\n\n  & > svg {\n    fill: currentColor;\n  }\n\n  ", "\n  ", "\n  ", "\n\n  ", "\n"], ["\n  align-items: center;\n  border-radius: 0;\n  color: #ffffff;\n  display: inline-flex;\n  font-weight: 400;\n  white-space: nowrap;\n\n  & > svg {\n    fill: currentColor;\n  }\n\n  ",
+var StyledTag = styled__default['default'].div(templateObject_1$k || (templateObject_1$k = __makeTemplateObject(["\n  align-items: center;\n  border-radius: 0;\n  color: #ffffff;\n  display: inline-flex;\n  font-weight: 400;\n  white-space: nowrap;\n\n  & > svg {\n    fill: currentColor;\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  border-radius: 0;\n  color: #ffffff;\n  display: inline-flex;\n  font-weight: 400;\n  white-space: nowrap;\n\n  & > svg {\n    fill: currentColor;\n  }\n\n  ",
     "\n  ",
-    "\n  ", "\n\n  ", "\n"])), styledSystem.variant({
+    "\n  ", "\n  ",
+    "\n  ", "\n"])), styledSystem.variant({
     prop: "scale",
     variants: scaleVariants,
 }), styledSystem.variant({
     variants: styleVariants,
-}), styledSystem.space, getOutlineStyles);
+}), styledSystem.space, function (_a) {
+    var color = _a.color;
+    return color ? "\n    background: " + color + ";\n  " : '';
+}, getOutlineStyles);
 var templateObject_1$k;
 
 var Tag = function (_a) {
