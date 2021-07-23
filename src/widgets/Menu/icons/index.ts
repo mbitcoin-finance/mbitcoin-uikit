@@ -21,3 +21,4 @@ export { default as VaultIcon } from "./Vault";
 export { default as DiscordIcon } from "./Discord";
 export { default as GitbookIcon } from "./Gitbook";
 export { default as TerminalIcon } from "./Terminal";
+export { default as AuditIcon } from "./Audit";
