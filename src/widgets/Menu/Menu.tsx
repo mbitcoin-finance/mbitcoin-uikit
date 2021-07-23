@@ -10,6 +10,9 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import { Button } from "../../components/Button";
+import { SunIcon, MoonIcon } from "./icons";
+import { Text } from "../../components/Text";
 
 const Wrapper = styled.div`
   position: relative;
@@ -125,6 +128,16 @@ const Menu: React.FC<NavProps> = ({
         />
         {!!login && !!logout && (
           <Flex>
+            <Button variant="text" onClick={() => toggleTheme(!isDark)} style={{ height: "24px", padding: "0 5px", marginRight: "10px" }}>
+              {/* alignItems center is a Safari fix */}
+              <Flex alignItems="center">
+                <SunIcon color={isDark ? "textDisabled" : "text"} width="18px" />
+                <Text color="textDisabled" mx="4px">
+                  /
+                </Text>
+                <MoonIcon color={isDark ? "text" : "textDisabled"} width="18px" />
+              </Flex>
+            </Button>
             <UserBlock account={account} login={login} logout={logout} />
             {profile && <Avatar profile={profile} />}
           </Flex>

@@ -31,7 +31,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   return (
     <Container>
       {links.map((entry) => {
-        const Icon = Icons[entry.icon];
+        const Icon = Icons[entry.icon] || Icons["LayerIcon"];
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
 
@@ -58,7 +58,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                       <LinkLabel isPushed={isPushed}>{item.label}</LinkLabel>
                       {item.status && (
                         <LinkStatus color={item.status.color} fontSize="14px">
-                          {item.status.text}
+                          {item.status.text ?? " "}
                         </LinkStatus>
                       )}
                     </MenuLink>
@@ -74,7 +74,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               <LinkLabel isPushed={isPushed}>{entry.label}</LinkLabel>
               {entry.status && (
                 <LinkStatus color={entry.status.color} fontSize="14px">
-                  {entry.status.text}
+                  {entry.status.text ?? " "}
                 </LinkStatus>
               )}
             </MenuLink>

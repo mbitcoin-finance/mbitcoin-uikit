@@ -20,6 +20,7 @@ export { default as AuditIcon } from "./Audit";
 export { default as HandshakeIcon } from "./Handshake";
 export { default as LayerIcon } from "./Layer";
 export { default as RoadmapIcon } from "./Roadmap";
+export { default as TeamBattleIcon } from "./TeamBattle";
 export { default as VaultIcon } from "./Vault";
 export { default as DiscordIcon } from "./Discord";
 export { default as GitbookIcon } from "./Gitbook";
